@@ -16,6 +16,7 @@ python-dotenv = "*"
 dj-database-url = "*"
 e = "*"
 django-auth-template = {path = "."}
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
