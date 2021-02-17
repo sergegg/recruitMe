@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS "recruitMe";
+CREATE DATABASE "recruitMe";
