@@ -65,6 +65,7 @@ SECRET_KEY = os.getenv('SECRET')
 INSTALLED_APPS = [
     # Our custom apps
     'api',
+    'recruitMe',
     # DRF
     'rest_framework',
     'rest_framework.authtoken',
