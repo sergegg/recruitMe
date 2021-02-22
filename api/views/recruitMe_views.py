@@ -8,7 +8,7 @@ from django.contrib.auth import get_user, authenticate, login, logout
 from django.middleware.csrf import get_token
 
 from ..models.recruitMe import RecruitMe
-from ..serializers import RecruitMeSerializer, UserSerializer
+from ..serializers import RecruitMeSerializer, UserSerializer, commentSerializer
 
 class RecruitMe(generics.ListCreateAPIView):
   premission_classes=(IsAuthenticated,)
@@ -22,7 +22,7 @@ class RecruitMe(generics.ListCreateAPIView):
   def post(self, request):
     """create recruitMe"""
     request.data['recruitMe']['owner'] = request.user.id
-    recruitMe = RecruitMeSerializer(data=request.data['recruitMe'])
+    recruitMe = RecruitMeSerializer(data=request.data)
     if recruitMe.is_valid():
       recruitMe.save()
       return Response({ 'recruitMe': recruitMe.data}, status=status.HTTP_201_CREATED)
@@ -58,9 +58,14 @@ class RecruitMeDetail(generics.RetrieveUpdateDestroyAPIView):
 
         request.data['recruitMe']['owner'] = request.user.id
         # Validate updates with serializer
-        data = RecruitMeSerializer(recruitMe, data=request.data['recruitMe'])
+        data = RecruitMeSerializer(recruitMe, data=request.data)
         if data.is_valid():
             data.save()
             return Response(status=status.HTTP_204_NO_CONTENT)
         # If the data is not valid, return a response with the errors
         return Response(data.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# class CommentAsDetail(generics.RetrieveUpdateDestroyAPIView):
+#     premission_classes=(IsAuthenticated,)
+#     serializer_class = commentSerializer
+#

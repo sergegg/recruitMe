@@ -7,9 +7,9 @@ curl "http://localhost:8000/recruitMe/${ID}" \
   --header "Authorization: Token ${TOKEN}" \
   --data '{
     "recruitMe": {
-      "name": "'"${NAME}"'",
-      "date_of_birth": "'"${DOB}"'",
-      "resume_Url": "'"${RESUME}"'"
+      "name": "'"${NEWNAME}"'",
+      "date_of_birth": "'"${NEWDOB}"'",
+      "resume_Url": "'"${NEWRESUME}"'"
     }
   }'
 

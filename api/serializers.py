@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 from .models.mango import Mango
 from .models.user import User
-from .models.recruitMe import RecruitMe
+from .models.recruitMe import RecruitMe, Comment
 
 class MangoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,6 +14,11 @@ class RecruitMeSerializer(serializers.ModelSerializer):
   class Meta:
     model = RecruitMe
     fields = ('name', 'date_of_birth', 'resume_Url', 'owner')
+
+class commentSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Comment
+    fields = ('name', 'name', 'body', 'owner')
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation

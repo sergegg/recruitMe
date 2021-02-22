@@ -12,6 +12,8 @@ urlpatterns = [
     path('sign-out/', SignOut.as_view(), name='sign-out'),
     path('change-pw/', ChangePassword.as_view(), name='change-pw'),
     path('recruitMe/', RecruitMe.as_view(), name='recruitMe'),
-    path('recruitMe/<int:pk>/', RecruitMeDetail.as_view(), name='recruitMe_detail')
+    path('recruitMe/<int:pk>/', RecruitMeDetail.as_view(), name='recruitMe_detail'),
+    # path('recruitMe/<int:pk>/comment', CommentDetail.as_view(), name='comment_detail')
+
 
 ]
