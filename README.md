@@ -44,7 +44,7 @@ As a user, id like to delete my post
 As a user, id like to comment on others posts
 
 ### The following is the link to my ERD imgur
-[ERD]()
+[ERD](https://imgur.com/Ue3aW3e)
 
 ### Unsolved Problems
 I have yet to create a Comment model. I am also having a few issues communicating
