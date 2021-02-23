@@ -26,7 +26,7 @@ class SignUp(generics.CreateAPIView):
         # print(f'data is ${data}')
         # print(request.data.credentials)
         data = json.loads(request.body)
-        print(request.body.decode('utf-8'))
+        # print(request.body.decode('utf-8'))
         # print(request.POST['credentials'])
         user = UserRegisterSerializer(data=data['credentials'])
         # If that data is in the correct format...
@@ -54,7 +54,7 @@ class SignIn(generics.CreateAPIView):
 
     def post(self, request):
         creds = json.loads(request.body)['credentials']
-        print(creds)
+        #  print(creds)
         # We can pass our email and password along with the request to the
         # `authenticate` method. If we had used the default user, we would need
         # to send the `username` instead of `email`.

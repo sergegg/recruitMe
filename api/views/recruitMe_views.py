@@ -24,7 +24,7 @@ class RecruitMes(generics.ListCreateAPIView):
   def post(self, request):
     """create recruitMe"""
     data = json.loads(request.body)
-    print(f'data is ${data}')
+    # print(f'data is ${data}')
     data['recruitMe']['owner'] = request.user.id
     # request.data['recruitMe']['owner'] = request.user.id
     recruitMe = RecruitMeSerializer(data=data['recruitMe'])
