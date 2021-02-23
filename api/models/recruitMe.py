@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
-class recruitMe(models.Model):
-  full_name = models.charField(max_length=100)
+class RecruitMe(models.Model):
+  full_name = models.CharField(max_length=100)
   date_of_birth = models.DateField()
   resume_Url = models.URLField(max_length=350)
-  extra_skills = models.charField(max_length=250)
+  extra_skills = models.TextField()
   owner = models.ForeignKey(
       get_user_model(),
       on_delete=models.CASCADE
