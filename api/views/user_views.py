@@ -91,7 +91,7 @@ class ChangePassword(generics.UpdateAPIView):
         user = request.user
         data = json.loads(request.body)
         # Pass data through serializer
-        serializer = ChangePasswordSerializer(data=request.data['passwords'])
+        serializer = ChangePasswordSerializer(data=data['passwords'])
         if serializer.is_valid():
             # This is included with the Django base user model
             # https://docs.djangoproject.com/en/3.1/ref/contrib/auth/#django.contrib.auth.models.User.check_password
