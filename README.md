@@ -1,5 +1,10 @@
 # Recipe Book Project
 
+### How To
+In order to use this application locally. Fork and clone this repo using the Fork button on the top right of the page. Then, clone it using the green "Code" button, choose SSH, and copy into your terminal using 'git clone -->SSH tag<--'. Following that, you may run python3 manage.py runserver to run this server locally. Then follow the "How To" on the frontend repo to fork and clone the client-side of the site.
+
+Otherwise, if you would like to use the deployed application, just head over to the deployed site provided in the "about" section of this repo, sign up using a fake emnail and password containing at least 5 characters, sign-in, and begin using the site!
+
 ### Planning Story
 While considering creating this API, I begun with a simpler idea of creating an
 application which was going to allow users to create profiles to job hunt (sort of
