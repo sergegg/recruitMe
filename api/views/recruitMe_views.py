@@ -37,7 +37,7 @@ class RecruitMeDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes=(IsAuthenticated,)
     def get(self, request, pk):
         """Show request"""
-        recruitMe = get_object_or_404(recruitMe, pk=pk)
+        recruitMe = get_object_or_404(RecruitMe, pk=pk)
         if not request.user.id == recruitMe.owner.id:
             raise PermissionDenied('Unauthorized, you do not own this recruitMe')
 
@@ -54,16 +54,17 @@ class RecruitMeDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def partial_update(self, request, pk):
         """Update Request"""
-        if request.data['recruitMe'].get('owner', False):
-            del request.data['recruitMe']['owner']
+        data = json.loads(request.body)
+        if data['recruitMe'].get('owner', False):
+            del data['recruitMe']['owner']
 
         recruitMe = get_object_or_404(RecruitMe, pk=pk)
         if not request.user.id == recruitMe.owner.id:
             raise PermissionDenied('Unauthorized, you do not own this recruitMe')
 
-        request.data['recruitMe']['owner'] = request.user.id
+        data['recruitMe']['owner'] = request.user.id
         # Validate updates with serializer
-        data = RecruitMeSerializer(recruitMe, data=request.data['recruitMe'])
+        data = RecruitMeSerializer(recruitMe, data=data['recruitMe'])
         if data.is_valid():
             data.save()
             return Response(status=status.HTTP_204_NO_CONTENT)

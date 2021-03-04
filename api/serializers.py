@@ -10,11 +10,6 @@ class MangoSerializer(serializers.ModelSerializer):
         model = Mango
         fields = ('id', 'name', 'color', 'ripe', 'owner')
 
-class RecruitMeSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = RecruitMe
-    fields = ('full_name', 'date_of_birth', 'resume_Url', 'extra_skills', 'owner')
-
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation
     # The login serializer also inherits from this serializer
@@ -51,3 +46,8 @@ class ChangePasswordSerializer(serializers.Serializer):
     model = get_user_model()
     old = serializers.CharField(required=True)
     new = serializers.CharField(required=True)
+
+class RecruitMeSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = RecruitMe
+    fields = ('id', 'full_name', 'date_of_birth', 'resume_Url', 'extra_skills', 'owner')
